@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Recolectores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Tabla de Recolectores</h1>
+        {% if error_message %}
+            <div class="error">{{ error_message }}</div>
+        {% endif %}
+        <form method="post" action="/guardar_recolectores">
+            <label for="precio_alimentacion">Precio a pagar por kilo con alimentación:</label>
+            <input type="number" step="0.01" id="precio_alimentacion" name="precio_alimentacion" required>
+            <label for="precio_no_alimentacion">Precio a pagar por kilo sin alimentación:</label>
+            <input type="number" step="0.01" id="precio_no_alimentacion" name="precio_no_alimentacion" required>
+            <table class="recolectores">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cantidad Recolectada (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recolector in recolectores %}
+                    <tr>
+                        <td><input type="text" name="nombre[]" value="{{ recolector.nombre }}"></td>
+                        <td><input type="text" name="apellido[]" value="{{ recolector.apellido }}"></td>
+                        <td><input type="number" name="cantidad_recolectada[]" step="0.01" value="{{ recolector.cantidad_recolectada }}"></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input type="submit" value="Guardar registros" class="btn">
+        </form>
+        <form method="post" action="/agregar_casilla">
+            <button type="submit" class="btn">Agregar casilla</button>
+        </form>
+        <form method="post" action="/eliminar_casilla">
+            <button type="submit" class="btn">Eliminar casilla</button>
+        </form>
+        <form action="/ver_registros">
+            <button type="submit" class="btn">Ver registros</button>
+        </form>
+        <a href="/" class="btn">Volver a la página principal</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
