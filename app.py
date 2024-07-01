@@ -146,8 +146,7 @@ def ver_registros():
                            total_no_alimentacion=total_no_alimentacion)
 
 # Ejecutar la aplicación Flask si se ejecuta como script principal
-if __name__ == '__main__':
-    app.run(debug=True)
+app.run(debug=True)
 
 
 
