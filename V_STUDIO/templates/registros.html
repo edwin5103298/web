@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registros</h1>
+        <table class="recolectores">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cantidad Recolectada (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recolector in recolectores %}
+                <tr>
+                    <td>{{ recolector.nombre }}</td>
+                    <td>{{ recolector.apellido }}</td>
+                    <td>{{ recolector.cantidad_recolectada }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/tabla_recolectores" class="btn">Volver a la tabla de recolectores</a>
+    </div>
+</body>
+</html>
