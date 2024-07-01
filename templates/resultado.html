@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>RESULTADOS</h1>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h2>Precio en Café Seco:</h2>
+                <p>${{ Precio_seco }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Precio en Café Verde:</h2>
+                <p>${{ Precio_verde }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Precio en Café Colorado:</h2>
+                <p>${{ Precio_colorado }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Kilaje en Café Seco:</h2>
+                <p>{{ porcentaje_seco }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Kilaje en Café Verde:</h2>
+                <p>{{ porcentaje_verde + porcentaje_colorado }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Kilaje de colorado a seco:</h2>
+                <p>{{ porcentaje_colorado_seco }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Precio por kilo en Café Seco:</h2>
+                <p>${{ valor_seco }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Precio por kilo en Café Verde:</h2>
+                <p>${{ valor_verde }}</p>
+            </div>
+            <div class="grid-item">
+                <h2>Precio por kilo en Café Colorado:</h2>
+                <p>${{ valor_colorado }}</p>
+            </div>
+            <div class="grid-item total">
+                <h1>Su Ganancia total es:</h1>
+                <h2 class="total_vendido">${{ Precio_total }}</h2>
+            </div>
+        </div>
+        <form action="/" method="get">
+            <input type="submit" class="btn" value="Volver">
+        </form>
+        <form action="/tabla_recolectores" method="get">
+            <input type="submit" class="btn" value="Ir a Tabla de Recolectores">
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Café</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Café</h1>
+        <form action="/calcular" method="post">
+            <div class="input-group">
+                <label for="valor">Valor por carga de café seco:</label>
+                <input type="number" name="valor_carga_cafe" id="valor" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <h2>En kilogramos</h2>
+                <div class="input-group">
+                    <label for="cafe_seco">Café Seco:</label>
+                    <input type="number" name="cafe_seco" id="cafe_seco" step="0.01" required value="0">
+                </div>
+                <div class="input-group">
+                    <label for="cafe_verde">Café Verde:</label>
+                    <input type="number" name="cafe_verde" id="cafe_verde" step="0.01" required value="0">
+                </div>
+                <div class="input-group">
+                    <label for="cafe_colorado">Café Colorado:</label>
+                    <input type="number" name="cafe_colorado" id="cafe_colorado" step="0.01" required value="0">
+                </div>
+            </div>
+            <div class="input-group">
+                <h2>Recolector de café</h2>
+                <div class="input-group">
+                    <label for="precio_kilo_alimentacion">Precio a pagar por kilo con alimentación:</label>
+                    <input type="number" name="precio_kilo_alimentacion" id="precio_kilo_alimentacion" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label for="precio_kilo_no_alimentacion">Precio a pagar por kilo sin alimentación:</label>
+                    <input type="number" name="precio_kilo_no_alimentacion" id="precio_kilo_no_alimentacion" step="0.01" required>
+                </div>
+            </div>
+            <input type="submit" class="btn" value="Calcular">
+        </form>
+    </div>
+</body>
+</html>
+
